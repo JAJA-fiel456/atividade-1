@@ -168,3 +168,16 @@
                 url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Nelson_Mandela_1994.jpg/440px-Nelson_Mandela_1994.jpg"
             }
         };
+
+        function mostrarImagem(chave) {
+            const pessoa = famosos[chave];
+            const container = document.getElementById('container');
+            const nomeDiv = document.getElementById('nome');
+
+            // Limpa o container e mostra a imagem
+            container.innerHTML = `<img src="${pessoa.url}" alt="${pessoa.nome}" onerror="this.parentElement.innerHTML='<p class=\\'placeholder\\'>Erro ao carregar a imagem</p>'">`;
+            nomeDiv.textContent = pessoa.nome;
+        }
+    </script>
+</body>
+</html>
