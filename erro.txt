@@ -1,0 +1,21 @@
+========================================
+  ARQUIVO DE LOG DE ERROS - Famosos
+========================================
+
+Este arquivo serve para registrar erros de carregamento de imagens.
+
+No navegador (HTML + CSS + JS puro) não é possível escrever diretamente
+neste arquivo por questões de segurança.
+
+Quando ocorre um erro de imagem, a função registrarErro() no script.js
+envia a mensagem para o console do navegador (F12 > Console).
+
+Exemplo de log de erro:
+----------------------------------------
+[ERRO] Erro ao carregar imagem de Albert Einstein | URL: https://... | Data: 31/08/2026 13:34:00
+----------------------------------------
+
+Se quiser gravar de verdade neste arquivo, é necessário usar um servidor
+(backend) com Node.js, PHP, Python, etc.
+
+========================================
