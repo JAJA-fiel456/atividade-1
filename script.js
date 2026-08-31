@@ -66,3 +66,8 @@ function mostrarImagem(chave) {
         nomeDiv.textContent = "Falha no carregamento";
     };
 }
+
+function registrarErro(mensagem) {
+    console.error("[ERRO]", mensagem);
+
+}
