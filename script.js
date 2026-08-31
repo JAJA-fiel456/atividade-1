@@ -33,3 +33,36 @@ const famosos = {
     }
 };
 
+function mostrarImagem(chave) {
+    const pessoa = famosos[chave];
+    const container = document.getElementById('container');
+    const nomeDiv = document.getElementById('nome');
+
+    if (!pessoa) {
+        registrarErro(`Chave inválida: ${chave}`);
+        container.innerHTML = `<p class="placeholder">Erro: pessoa não encontrada</p>`;
+        nomeDiv.textContent = "";
+        return;
+    }
+
+    // Cria a imagem
+    const img = document.createElement('img');
+    img.src = pessoa.url;
+    img.alt = pessoa.nome;
+
+    // Quando a imagem carregar com sucesso
+    img.onload = function() {
+        container.innerHTML = '';
+        container.appendChild(img);
+        nomeDiv.textContent = pessoa.nome;
+    };
+
+    // Quando ocorrer erro ao carregar a imagem
+    img.onerror = function() {
+        const mensagem = `Erro ao carregar imagem de ${pessoa.nome} | URL: ${pessoa.url} | Data: ${new Date().toLocaleString('pt-BR')}`;
+        registrarErro(mensagem);
+
+        container.innerHTML = `<p class="placeholder">Erro ao carregar a imagem de ${pessoa.nome}</p>`;
+        nomeDiv.textContent = "Falha no carregamento";
+    };
+}
